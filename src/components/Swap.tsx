@@ -20,7 +20,6 @@ const Swap = () => {
         setPrices(data);
         const swapped = (data[swapFrom].usd * userAmount) / data[swapTo].usd;
         setSwapAmount(swapped);
-        console.log(swapAmount);
       } catch (error) {
         console.error(error);
       }
@@ -75,6 +74,7 @@ const Swap = () => {
           <SwapItem
             handleSwapAmountChange={handleSwapAmountChange}
             handleSwapTo={handleSwapTo}
+            swapAmount={swapAmount}
           />
         </div>
         <button
