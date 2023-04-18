@@ -15,10 +15,9 @@ const Navbar = () => {
 
   const checkConnection = async () => {
     try {
-      // Check if MetaMask is connected
-      const provider = new ethers.BrowserProvider(window.ethereum)
-      const network = await provider.getNetwork();
-      setIsConnected(true);
+      const accounts = await window.ethereum.request({ method: "eth_accounts" });
+      setIsConnected(accounts.length > 0);
+      setWalletAddr(accounts[0]);
     } catch (error) {
       console.log(error);
       setIsConnected(false);
