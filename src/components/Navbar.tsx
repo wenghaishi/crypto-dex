@@ -16,7 +16,7 @@ const Navbar = () => {
   const checkConnection = async () => {
     try {
       // Check if MetaMask is connected
-      const provider = new ethers.Web3Provider(window.ethereum);
+      const provider = new ethers.BrowserProvider(window.ethereum)
       const network = await provider.getNetwork();
       setIsConnected(true);
     } catch (error) {

@@ -5,10 +5,10 @@ import axios from "axios";
 import { ethers } from "ethers";
 
 const Swap = () => {
-  const [userAmount, setUserAmount] = useState();
-  const [swapAmount, setSwapAmount] = useState();
-  const [swapFrom, setSwapFrom] = useState();
-  const [swapTo, setSwapTo] = useState();
+  const [userAmount, setUserAmount] = useState<number>();
+  const [swapAmount, setSwapAmount] = useState<number>();
+  const [swapFrom, setSwapFrom] = useState<string>();
+  const [swapTo, setSwapTo] = useState<string>();
   const [prices, setPrices] = useState({});
 
   useEffect(() => {
