@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import SwapItem from "./SwapItem";
 import axios from "axios";
+import { ethers } from "ethers";
 
 const Swap = () => {
   const [userAmount, setUserAmount] = useState();
@@ -25,7 +26,7 @@ const Swap = () => {
       }
     };
     fetchPrices();
-  }, [userAmount, swapAmount]);
+  }, [userAmount, swapAmount, swapFrom, swapTo]);
 
   const handleUserAmountChange = (e: any) => {
     setUserAmount(e.target.value);
@@ -44,16 +45,9 @@ const Swap = () => {
     setSwapTo(e.value);
   };
 
+  
   const handleSwap = async () => {
-    try {
-      const response = await axios.get(
-        "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum&vs_currencies=usd"
-      );
-      setPrices(response.data);
-      console.log(prices);
-    } catch (error) {
-      console.error(error);
-    }
+    
   };
 
   return (

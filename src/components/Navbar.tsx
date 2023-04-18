@@ -4,10 +4,10 @@ import { useState, useEffect } from "react";
 
 const Navbar = () => {
   const [isConnected, setIsConnected] = useState(false);
-  const [walletAddr, setWalletAddr] = useState();
+  const [walletAddr, setWalletAddr] = useState<string>("");
 
   const connectWallet = () => {
-    window.ethereum.request({ method: "eth_requestAccounts" }).then((res) => {
+    window.ethereum.request({ method: "eth_requestAccounts" }).then((res: any) => {
       setIsConnected(true);
       setWalletAddr(window.ethereum.selectedAddress);
     });
@@ -16,7 +16,7 @@ const Navbar = () => {
   const checkConnection = async () => {
     try {
       // Check if MetaMask is connected
-      const provider = new ethers.providers.Web3Provider(window.ethereum);
+      const provider = new ethers.Web3Provider(window.ethereum);
       const network = await provider.getNetwork();
       setIsConnected(true);
     } catch (error) {
