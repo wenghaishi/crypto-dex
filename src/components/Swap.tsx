@@ -23,7 +23,8 @@ const Swap = () => {
         setPrices(data);
         const swapped = (data[swapFrom].usd * userAmount) / data[swapTo].usd;
         setSwapAmount(swapped);
-        setSwapFromPrice((data[swapFrom].usd * userAmount).toLocaleString())
+        setSwapFromPrice((data[swapFrom].usd * userAmount))
+        console.log(swapFromPrice)
       } catch (error) {
         console.error(error);
       }
