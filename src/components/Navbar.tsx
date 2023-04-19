@@ -2,6 +2,7 @@ import React from "react";
 import { ethers } from "ethers";
 import { useState, useEffect } from "react";
 
+
 const Navbar = () => {
   const [isConnected, setIsConnected] = useState(false);
   const [walletAddr, setWalletAddr] = useState<string>("");
@@ -33,10 +34,10 @@ const Navbar = () => {
       <img
         src="logo.jpeg"
         alt=""
-        className="h-12 ml-6 drop-shadow-none border-none"
+        className="h-12 ml-8 drop-shadow-none border-none"
       />
       <button
-        className="bg-emerald-400 rounded-lg text-white font-bold px-6 h-14 mr-6"
+        className="bg-emerald-400 rounded-lg text-white font-bold px-6 h-14 mr-8"
         onClick={connectWallet}
       >
         {isConnected ? `${walletAddr.substring(0, 6)}...${walletAddr.substring(walletAddr.length - 4)}` : "Connect Metamask"}

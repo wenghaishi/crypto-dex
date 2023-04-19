@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import SwapItem from "./SwapItem";
 import axios from "axios";
 import { ethers } from "ethers";
+import { BsFillArrowDownSquareFill } from 'react-icons/bs';
 
 const Swap = () => {
   const [userAmount, setUserAmount] = useState<any>();
@@ -53,18 +54,14 @@ const Swap = () => {
   return (
     <div className="flex flex-col item-center drop-shadow-md items-center mt-12">
       <div className="h-128 w-128 border rounded-xl flex flex-col item-center">
-        <div className="bg-zinc-100 h-48 mt-4 mx-4 rounded-xl">
+        <div className="bg-white h-48 mt-4 mx-4 rounded-xl">
           <SwapItem
             handleUserAmountChange={handleUserAmountChange}
             handleSwapFrom={handleSwapFrom}
           />
         </div>
-        <img
-          src="arrow.png"
-          alt=""
-          className="absolute h-14 transform rotate-90 mt-48 ml-56"
-        />
-        <div className="bg-zinc-100 h-48 mt-4 mx-4 rounded-xl">
+        <BsFillArrowDownSquareFill className="text-5xl text-green mt-48 ml-60 absolute text-emerald-400 bg-white"/>
+        <div className="bg-white h-48 mt-4 mx-4 rounded-xl">
           <SwapItem
             handleSwapAmountChange={handleSwapAmountChange}
             handleSwapTo={handleSwapTo}
