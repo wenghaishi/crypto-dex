@@ -1,9 +1,8 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import SwapItem from "./SwapItem";
-import axios from "axios";
 import { ethers } from "ethers";
-import { BsFillArrowDownSquareFill } from 'react-icons/bs';
+import { BsFillArrowDownSquareFill } from "react-icons/bs";
 
 const Swap = () => {
   const [userAmount, setUserAmount] = useState<any>();
@@ -23,8 +22,8 @@ const Swap = () => {
         setPrices(data);
         const swapped = (data[swapFrom].usd * userAmount) / data[swapTo].usd;
         setSwapAmount(swapped);
-        setSwapFromPrice((data[swapFrom].usd * userAmount))
-        console.log(swapFromPrice)
+        setSwapFromPrice(data[swapFrom].usd * userAmount);
+        console.log(swapFromPrice);
       } catch (error) {
         console.error(error);
       }
@@ -49,10 +48,7 @@ const Swap = () => {
     setSwapTo(e.value);
   };
 
-  
-  const handleSwap = async () => {
-    
-  };
+  const handleSwap = async () => {};
 
   return (
     <div className="flex flex-col item-center drop-shadow-md items-center mt-12">
@@ -64,7 +60,7 @@ const Swap = () => {
             swapFromPrice={swapFromPrice}
           />
         </div>
-        <BsFillArrowDownSquareFill className="text-5xl text-green mt-48 ml-60 absolute text-emerald-400 bg-white"/>
+        <BsFillArrowDownSquareFill className="text-5xl text-green mt-48 ml-60 absolute text-emerald-400 bg-white" />
         <div className="bg-white h-48 mt-4 mx-4 rounded-xl">
           <SwapItem
             handleSwapAmountChange={handleSwapAmountChange}
