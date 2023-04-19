@@ -11,6 +11,7 @@ const Swap = () => {
   const [swapFrom, setSwapFrom] = useState<any>();
   const [swapTo, setSwapTo] = useState<any>();
   const [prices, setPrices] = useState<any>({});
+  const [swapFromPrice, setSwapFromPrice] = useState<number>();
 
   useEffect(() => {
     const fetchPrices = async () => {
@@ -22,6 +23,7 @@ const Swap = () => {
         setPrices(data);
         const swapped = (data[swapFrom].usd * userAmount) / data[swapTo].usd;
         setSwapAmount(swapped);
+        setSwapFromPrice((data[swapFrom].usd * userAmount).toLocaleString())
       } catch (error) {
         console.error(error);
       }
@@ -58,6 +60,7 @@ const Swap = () => {
           <SwapItem
             handleUserAmountChange={handleUserAmountChange}
             handleSwapFrom={handleSwapFrom}
+            swapFromPrice={swapFromPrice}
           />
         </div>
         <BsFillArrowDownSquareFill className="text-5xl text-green mt-48 ml-60 absolute text-emerald-400 bg-white"/>
@@ -66,11 +69,12 @@ const Swap = () => {
             handleSwapAmountChange={handleSwapAmountChange}
             handleSwapTo={handleSwapTo}
             swapAmount={swapAmount}
+            swapFromPrice={swapFromPrice}
           />
         </div>
         <button
           onClick={handleSwap}
-          className="bg-emerald-400 rounded-lg text-white font-bold px-4 h-16 mx-4 my-4"
+          className="bg-emerald-400 rounded-lg text-white font-bold px-4 h-16 mx-4 my-4 hover:bg-emerald-300"
         >
           Swap
         </button>

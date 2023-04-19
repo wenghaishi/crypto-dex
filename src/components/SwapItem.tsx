@@ -10,8 +10,9 @@ const SwapItem = (props: any) => {
 
   return (
     <div className="w-full h-full flex flex-row items-center justify-evenly">
-      <input type="number" className="h-16 text-4xl rounded-lg border px-2 w-2/4" onChange={props.handleUserAmountChange || props.handleSwapAmountChange} value={props.swapAmount}/>
-      <Select options={options}  onChange={props.handleSwapFrom || props.handleSwapTo}/>
+      <input type="number" step="any" d-none className="h-12 text-3xl rounded-lg border px-2 w-2/4" onChange={props.handleUserAmountChange || props.handleSwapAmountChange} value={props.swapAmount}/>
+      <div className="absolute mt-24 mr-80 pl-2">${props.swapFromPrice}</div>
+      <Select options={options} onChange={props.handleSwapFrom || props.handleSwapTo}/>
     </div>
   );
 };
